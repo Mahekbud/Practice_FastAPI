@@ -29,7 +29,7 @@ def create_employee(emp : EmployeeAll):
         password = pwd_context.hash(emp.password)  
     )
     logger.success("employee is created.")
-    logger.info("employee adding to databse.......")
+    logger.info("employee adding to database.......")
     db.add(new_emp)
     logger.info("employee loaded successfully")
     db.commit()
@@ -92,6 +92,7 @@ def get_all_emp():
     if db_emp is None:
         logger.info("employee not found")
         raise HTTPException(status_code=404,detail="emp not found")
+    
     logger.success("Employee information retrieved successfully")
     return db_emp
 
